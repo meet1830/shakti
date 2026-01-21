@@ -31,6 +31,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     return true
   }
+
+  // @react-native-google-signin/google-signin
+  func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+    // Add any other URL handlers you're using (e.g. Facebook SDK)
+    return GIDSignIn.sharedInstance.handle(url)
+  }
 }
 
 class ReactNativeDelegate: RCTDefaultReactNativeFactoryDelegate {

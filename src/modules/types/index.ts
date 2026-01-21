@@ -1,0 +1,5 @@
+export enum ConfigKey {
+  AUTH_WEB_CLIENT_ID = 'AUTH_WEB_CLIENT_ID',
+  AUTH_IOS_CLIENT_ID = 'AUTH_IOS_CLIENT_ID',
+  BASE_URL = 'BASE_URL',
+}
