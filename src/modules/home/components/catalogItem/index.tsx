@@ -49,9 +49,11 @@ const CatalogItem: ListRenderItem<Product> = props => {
             <Text style={styles.weight}>{weight}</Text>
             <View style={styles.priceContainer}>
               <Text style={styles.price}>{formatCurrency(price)}</Text>
-              <Text style={styles.original}>
-                {formatCurrency(original_price)}
-              </Text>
+              {original_price && original_price > price && (
+                <Text style={styles.original}>
+                  {formatCurrency(original_price)}
+                </Text>
+              )}
             </View>
           </View>
           <TouchableOpacity onPress={navigateToItemDetail} style={styles.view}>
