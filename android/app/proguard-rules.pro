@@ -18,3 +18,22 @@
   **[] $VALUES;
   public *;
 }
+
+# Keep the Google Sign-In library classes
+-keep class com.reactnativegooglesignin.** { *; }
+
+# Keep Google Play Services and Auth classes
+-keep class com.google.android.gms.auth.** { *; }
+-keep class com.google.android.gms.common.** { *; }
+-keep class com.google.android.gms.tasks.** { *; }
+
+# Prevent warnings that might stop the build
+-dontwarn com.google.android.gms.**
+
+-keep class com.patelnamkeen.BuildConfig { *; }
+
+# 1. Keep Generic Signatures (Crucial for JSON/Auth responses)
+-keepattributes Signature, *Annotation*, EnclosingMethod, InnerClasses
+
+# 2. Keep Google Play Services Internals (Aggressive)
+-keep interface com.google.android.gms.common.api.Api$ApiOptions

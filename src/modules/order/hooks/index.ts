@@ -56,7 +56,10 @@ export function useGetOrders() {
 
       setOrdersState({loading: false, error: ''});
     } catch (error: any) {
-      setOrdersState({loading: false, error: error?.message});
+      setOrdersState({
+        loading: false,
+        error: error?.status !== 404 ? error?.message : '',
+      });
     }
   }
 

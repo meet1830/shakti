@@ -1,4 +1,4 @@
-package com.shakti
+package com.patelnamkeen
 
 import android.app.Application
 import com.facebook.react.PackageList

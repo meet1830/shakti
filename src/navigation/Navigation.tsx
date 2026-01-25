@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react';
 
 import Cart from '@modules/cart/screens/cart';
+import {Colors} from '@utils/Constants';
 import IfElse from '@modules/components/ifElse';
 import ItemDetail from '@modules/home/screens/itemDetail';
 import Login from '@modules/onboard/screens/login';
@@ -8,6 +9,7 @@ import MainNavigator from './MainNavigator';
 import {NavigationContainer} from '@react-navigation/native';
 import OrderDetail from '@modules/order/screens/orderDetail';
 import Splash from '@modules/onboard/screens/splash';
+import {StatusBar} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {navigationRef} from './NavigationUtil';
 import {useAppSelector} from '@store/hooks';
@@ -49,6 +51,11 @@ const Navigation = () => {
 
   return (
     <NavigationContainer ref={navigationRef}>
+      <StatusBar
+        backgroundColor={Colors.primary}
+        barStyle={'dark-content'}
+        translucent
+      />
       <IfElse
         condition={user}
         ifComp={<MainStack isSplashShown={isSplashShown} />}

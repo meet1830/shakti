@@ -54,7 +54,7 @@ const Order: FC = () => {
         renderItem={OrderCell}
         ListEmptyComponent={
           <IfElse
-            condition={loading}
+            condition={!loading}
             ifComp={
               <Empty
                 text="No Orders yet!"
@@ -67,7 +67,7 @@ const Order: FC = () => {
               <IfElse
                 condition={error}
                 ifComp={<Text style={styles.error}>{error}</Text>}
-                elseComp={<ActivityIndicator />}
+                elseComp={<ActivityIndicator size="large" />}
               />
             }
           />

@@ -19,8 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		09F1184D7528434A9FB6197D /* Tinos-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Tinos-Bold.ttf"; path = "../src/assets/fonts/Tinos-Bold.ttf"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* shakti.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shakti.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		09F1184D7528434A9FB6197D /* Tinos-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Tinos-Bold.ttf"; path = "../src/assets/fonts/Tinos-Bold.ttf"; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* Patel Namkeen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Patel Namkeen.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = shakti/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = shakti/Info.plist; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = shakti/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
@@ -31,9 +31,9 @@
 		71D560C475E7326AF37B46EB /* Pods-shakti.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shakti.release.xcconfig"; path = "Target Support Files/Pods-shakti/Pods-shakti.release.xcconfig"; sourceTree = "<group>"; };
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = shakti/AppDelegate.swift; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = shakti/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		C7801B0974404F40BA97E803 /* CormorantGaramond-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "CormorantGaramond-Medium.ttf"; path = "../src/assets/fonts/CormorantGaramond-Medium.ttf"; sourceTree = "<group>"; };
-		CA41DED590E84B2AACCD7CD8 /* Tinos-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Tinos-Regular.ttf"; path = "../src/assets/fonts/Tinos-Regular.ttf"; sourceTree = "<group>"; };
-		E4FA39F8398449A9AD1593E1 /* CormorantGaramond-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "CormorantGaramond-Regular.ttf"; path = "../src/assets/fonts/CormorantGaramond-Regular.ttf"; sourceTree = "<group>"; };
+		C7801B0974404F40BA97E803 /* CormorantGaramond-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "CormorantGaramond-Medium.ttf"; path = "../src/assets/fonts/CormorantGaramond-Medium.ttf"; sourceTree = "<group>"; };
+		CA41DED590E84B2AACCD7CD8 /* Tinos-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Tinos-Regular.ttf"; path = "../src/assets/fonts/Tinos-Regular.ttf"; sourceTree = "<group>"; };
+		E4FA39F8398449A9AD1593E1 /* CormorantGaramond-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "CormorantGaramond-Regular.ttf"; path = "../src/assets/fonts/CormorantGaramond-Regular.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -97,7 +97,7 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* shakti.app */,
+				13B07F961A680F5B00A75B9A /* Patel Namkeen.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -111,7 +111,6 @@
 				C7801B0974404F40BA97E803 /* CormorantGaramond-Medium.ttf */,
 			);
 			name = Resources;
-			path = "";
 			sourceTree = "<group>";
 		};
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
@@ -144,7 +143,7 @@
 			);
 			name = shakti;
 			productName = shakti;
-			productReference = 13B07F961A680F5B00A75B9A /* shakti.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* Patel Namkeen.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -287,12 +286,15 @@
 			baseConfigurationReference = 1BCE562F3E0DB6EFD1CFFFD7 /* Pods-shakti.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = shakti/shakti.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = M4GD9T6482;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = shakti/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Patel Namkeen";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -306,7 +308,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = com.shakti;
-				PRODUCT_NAME = shakti;
+				PRODUCT_NAME = "Patel Namkeen";
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "$(SRCROOT)/shakti-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -319,11 +321,14 @@
 			baseConfigurationReference = 71D560C475E7326AF37B46EB /* Pods-shakti.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = shakti/shakti.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = M4GD9T6482;
 				INFOPLIST_FILE = shakti/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Patel Namkeen";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -337,7 +342,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = com.shakti;
-				PRODUCT_NAME = shakti;
+				PRODUCT_NAME = "Patel Namkeen";
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "$(SRCROOT)/shakti-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";

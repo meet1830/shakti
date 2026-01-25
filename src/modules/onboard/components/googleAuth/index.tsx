@@ -3,28 +3,15 @@ import {Colors, FONTS} from '@utils/Constants';
 import {
   GoogleSignin,
   GoogleSigninButton,
-  isErrorWithCode,
-  isSuccessResponse,
   statusCodes,
 } from '@react-native-google-signin/google-signin';
-import React, {FC, Fragment, RefObject, useState} from 'react';
+import React, {FC, Fragment, RefObject, useEffect, useState} from 'react';
 
 import {AuthType} from '@modules/onboard/types';
 import {ConfigKey} from '@modules/types';
+import {Logger} from '@utils/logger';
 import {getConfig} from '@utils/index';
 import {useLoginUser} from '@modules/onboard/hooks';
-
-GoogleSignin.configure({
-  webClientId: getConfig(ConfigKey.AUTH_WEB_CLIENT_ID), // client ID of type WEB for your server. Required to get the `idToken` on the user object, and for offline access.
-  offlineAccess: false, // if you want to access Google API on behalf of the user FROM YOUR SERVER
-  hostedDomain: '', // specifies a hosted domain restriction
-  forceCodeForRefreshToken: false, // [Android] related to `serverAuthCode`, read the docs link below *.
-  accountName: '', // [Android] specifies an account name on the device that should be used
-  iosClientId: getConfig(ConfigKey.AUTH_IOS_CLIENT_ID), // [iOS] if you want to specify the client ID of type iOS (otherwise, it is taken from GoogleService-Info.plist)
-  googleServicePlistPath: '', // [iOS] if you renamed your GoogleService-Info file, new name here, e.g. "GoogleService-Info-Staging"
-  openIdRealm: '', // [iOS] The OpenID2 realm of the home web server. This allows Google to include the user's OpenID Identifier in the OpenID Connect ID token.
-  profileImageSize: 120, // [iOS] The desired height (and width) of the profile image. Defaults to 120px
-});
 
 interface Props {
   disableRef: RefObject<boolean>;
@@ -36,35 +23,40 @@ const GoogleAuth: FC<Props> = ({disableRef}) => {
   const [loginError, setLoginError] = useState('');
 
   const handleGoogleAuth = async () => {
+    const logger: Record<string, any> = {};
+
     if (loading || disableRef.current) {
+      logger.loading = loading;
+      logger.disableRef = disableRef.current;
       return;
     }
     try {
+      logger.started = true;
       setLoading(true);
       disableRef.current = true;
       setLoginError('');
 
-      await GoogleSignin.hasPlayServices();
+      const hasPlayServices = await GoogleSignin.hasPlayServices();
+      logger.hasPlayServices = hasPlayServices;
 
       const response = await GoogleSignin.signIn();
+      logger.signIn = response;
 
-      if (isSuccessResponse(response)) {
-        const user = response.data;
-
-        if (user.idToken) {
-          const error = await loginUser({
-            idToken: user.idToken,
-            authType: AuthType.google,
-          });
-          if (error) {
-            setLoginError(error?.message);
-          }
+      if (response.idToken) {
+        const error = await loginUser({
+          idToken: response.idToken,
+          authType: AuthType.google,
+        });
+        if (error) {
+          setLoginError(error?.message);
+          logger.loginError = error;
         }
       } else {
-        // sign in was cancelled by user
+        setLoginError('Something went wrong');
       }
     } catch (error: any) {
-      if (isErrorWithCode(error)) {
+      logger.error = error;
+      if (error.code) {
         switch (error.code) {
           case statusCodes.IN_PROGRESS:
             // operation (eg. sign in) already in progress
@@ -84,8 +76,25 @@ const GoogleAuth: FC<Props> = ({disableRef}) => {
     } finally {
       setLoading(false);
       disableRef.current = false;
+      logger.finished = true;
+
+      Logger.debug('GoogleSignIn', logger);
     }
   };
+
+  useEffect(() => {
+    try {
+      GoogleSignin.configure({
+        scopes: [],
+        webClientId: getConfig(ConfigKey.AUTH_WEB_CLIENT_ID), // client ID of type WEB for your server. Required to get the `idToken` on the user object, and for offline access.
+        iosClientId: getConfig(ConfigKey.AUTH_IOS_CLIENT_ID),
+        profileImageSize: 120, // [iOS] The desired height (and width) of the profile image. Defaults to 120px
+      });
+    } catch (error: any) {
+      setLoginError(error);
+      Logger.error('GoogleSignIn configure', {error});
+    }
+  }, []);
 
   return (
     <Fragment>

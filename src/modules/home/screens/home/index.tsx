@@ -3,7 +3,6 @@ import {
   FlatList,
   Keyboard,
   Platform,
-  StatusBar,
   StyleSheet,
   Text,
   View,
@@ -46,7 +45,6 @@ const Home: FC = () => {
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
-      <StatusBar backgroundColor={Colors.primary} />
       <HomeHeader
         handleSearch={filterProducts}
         headerImperativeRef={headerImperativeRef}
@@ -62,14 +60,18 @@ const Home: FC = () => {
               keyboardDismissMode="on-drag"
               keyExtractor={item => item?._id}
               ListHeaderComponent={
-                <Text style={styles.header}>Explore all namkeen</Text>
+                <Text style={styles.header}>
+                  {allProducts?.length === filteredProducts?.length
+                    ? 'Explore all namkeen'
+                    : 'Search Results'}
+                </Text>
               }
               ItemSeparatorComponent={separator}
               ListFooterComponent={<View style={styles.footer} />}
               renderItem={CatalogItem}
             />
           ) : loading ? (
-            <ActivityIndicator />
+            <ActivityIndicator size="large" />
           ) : allProducts?.length ? (
             <Empty
               text="No Items found!"

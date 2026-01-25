@@ -26,7 +26,7 @@ export function useGetAllProducts() {
   }>({
     allProducts: items,
     filteredProducts: items,
-    loading: items ? false : true,
+    loading: items.length ? false : true,
     error: undefined,
   });
 

@@ -21,9 +21,8 @@ interface Props {
 
 const HomeHeader: FC<Props> = props => {
   const userAddress = useAppSelector(gState => gState.auth.user?.address?.[0]);
-  const isAddressMissing = Object.values(userAddress || {}).find(
-    value => !value,
-  );
+  const isAddressMissing =
+    !userAddress || Object.values(userAddress || {}).find(value => !value);
   const {handleSearch} = props;
   const [query, setQuery] = useState('');
   const [addressSheet, setAddressSheet] = useState(false);

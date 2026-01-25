@@ -4,45 +4,60 @@ import React, {FC, useRef} from 'react';
 
 import AppleAuth from '@modules/onboard/components/appleAuth';
 import GoogleAuth from '@modules/onboard/components/googleAuth';
+import ImageAutoScroll from '@modules/components/imageAutoScroll';
+import {name} from '../../../../../app.json';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 const Login: FC = () => {
-  const {bottom} = useSafeAreaInsets();
   const disableRef = useRef(false);
+  const {bottom} = useSafeAreaInsets();
 
   return (
-    <View style={styles.container}>
-      <Image
-        source={require('@assets/images/logo_t.png')}
-        style={styles.image}
-      />
-      <View
-        style={[
-          styles.login,
-          {
-            paddingBottom: bottom + 20,
-          },
-        ]}>
-        <Text style={styles.heading}>Welcome</Text>
-        <Text style={styles.subheader}>Login to view delicious namkeen!</Text>
-        <View style={styles.buttonContainer}>
-          <GoogleAuth disableRef={disableRef} />
-          <AppleAuth disableRef={disableRef} />
+    <ImageAutoScroll
+      source={require('@assets/images/splash.webp')}
+      width={1500}>
+      <View style={styles.container}>
+        <View style={styles.logoContainer}>
+          <Image
+            source={require('@assets/images/logo_t.png')}
+            style={styles.image}
+          />
+        </View>
+        <View
+          style={[
+            styles.login,
+            // eslint-disable-next-line react-native/no-inline-styles
+            {
+              paddingBottom: bottom ? bottom + 20 : 70,
+            },
+          ]}>
+          <Text style={styles.heading}>Welcome to {name}</Text>
+          <Text style={styles.subheader}>Login to view delicious namkeen!</Text>
+          <View style={styles.buttonContainer}>
+            <GoogleAuth disableRef={disableRef} />
+            <AppleAuth disableRef={disableRef} />
+          </View>
         </View>
       </View>
-    </View>
+    </ImageAutoScroll>
   );
 };
 
 const styles = StyleSheet.create({
-  image: {
-    height: 200,
-    width: 200,
-    resizeMode: 'contain',
+  logoContainer: {
     flex: 1,
-    alignSelf: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  container: {flex: 1, backgroundColor: Colors.primary},
+  image: {
+    height: 125,
+    width: 125,
+    resizeMode: 'contain',
+    borderRadius: 50,
+    padding: 10,
+    backgroundColor: Colors.primary,
+  },
+  container: {flex: 1},
   login: {
     backgroundColor: Colors.white,
     padding: 20,

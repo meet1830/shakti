@@ -19,7 +19,7 @@ const OrderCell: ListRenderItem<Order> = ({item: order}) => {
   const {createdAt, orderItems, status} = order;
 
   const orderItemImages: string[] = [];
-  for (let i = 0; i < orderItems?.length && i < 4; i++) {
+  for (let i = 0; i < orderItems?.length && i < 3; i++) {
     if (orderItems[i].image_uris?.length) {
       orderItemImages.push(orderItems[i].image_uris[0]);
     }
@@ -76,6 +76,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    gap: 10,
   },
   topLeft: {flex: 1},
   orderId: {
